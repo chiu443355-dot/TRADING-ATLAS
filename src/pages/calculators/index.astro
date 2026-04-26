@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CalculatorSuite from '../../components/calculators/CalculatorSuite.tsx';
+---
+<BaseLayout title="Trading Calculators — WikiWiz" description="5 precision trading calculators: Risk/Reward, Position Size, Pip Value, Compounding, Win Rate. Free forever.">
+  <main style="max-width:960px;margin:0 auto;padding:60px 24px;position:relative;z-index:1;">
+    <nav style="display:flex;align-items:center;gap:8px;font-family:'Fira Code',monospace;font-size:10px;color:var(--muted);margin-bottom:28px;">
+      <a href="/" style="color:var(--gold);text-decoration:none;">WikiWiz</a>
+      <span>›</span>
+      <span>Calculators</span>
+    </nav>
+    <div class="ch-eyebrow">Trading Tools</div>
+    <h1 class="ch-title">Professional <em>Calculators</em></h1>
+    <p class="ch-intro">Five calculators every serious trader uses before touching a position. Share results to WhatsApp in one tap and earn +25 XP.</p>
+    <CalculatorSuite client:load />
+    <div style="margin-top:48px;padding:24px;background:var(--glass);border:1px solid var(--gb);border-radius:14px;">
+      <div style="font-family:'Fira Code',monospace;font-size:9px;color:var(--gold);letter-spacing:.3em;margin-bottom:12px;">LEARN MORE</div>
+      <p style="color:var(--muted);font-size:14px;margin-bottom:16px;">These calculators are explained in Chapter 9 (Risk Management) and Chapter 11 (The Complete Strategy).</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="/chapters/09-risk-management" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--bg2);border:1px solid var(--gb);border-radius:8px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;text-decoration:none;">Ch 09: Risk Management →</a>
+        <a href="/chapters/11-complete-strategy" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--bg2);border:1px solid var(--gb);border-radius:8px;color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;text-decoration:none;">Ch 11: Complete Strategy →</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

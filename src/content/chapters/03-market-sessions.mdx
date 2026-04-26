@@ -1,0 +1,53 @@
+---
+layout: ../../layouts/ChapterLayout.astro
+title: "Market Sessions"
+chapterNum: 3
+description: "When to trade matters as much as how. Learn the 4 global sessions, the London-NY overlap, and optimal India windows."
+---
+<p class="ch-intro">Forex is open 24/5 but not all hours are equal. Trading in the wrong session is fishing in a dry lake.</p>
+<div style="margin:32px 0">
+  <div class="sess-bar" style="background:rgba(56,189,248,.08);border-left:2px solid var(--blue);color:var(--blue)"><span>Sydney Session</span><span class="sess-time">10PM – 7AM EST · Low Volume</span></div>
+  <div class="sess-bar" style="background:rgba(167,139,250,.08);border-left:2px solid var(--purple);color:var(--purple)"><span>Tokyo / Asian Session</span><span class="sess-time">12AM – 9AM EST · Ranging</span></div>
+  <div class="sess-bar" style="background:rgba(232,184,75,.1);border-left:2px solid var(--gold);color:var(--gold)"><span>London Session</span><span class="sess-time">3AM – 12PM EST · HIGH VOLUME</span></div>
+  <div class="sess-bar" style="background:rgba(34,197,94,.12);border-left:2px solid var(--green);color:var(--green)"><span>🔥 London + New York Overlap — PRIME TIME</span><span class="sess-time">8AM – 12PM EST · Maximum Volatility</span></div>
+  <div class="sess-bar" style="background:rgba(45,212,191,.08);border-left:2px solid var(--teal);color:var(--teal)"><span>New York Session</span><span class="sess-time">8AM – 5PM EST · High Volume</span></div>
+</div>
+<div class="g2">
+  <div class="card glass-green"><div class="badge-pill bp-green">Trade These</div><h3>London + New York Overlap</h3><p>8AM–12PM EST is where real money is made. EUR/USD, GBP/USD, USD/JPY all move significantly. Your prime zone.</p></div>
+  <div class="card glass-red"><div class="badge-pill bp-red">Avoid These</div><h3>Sydney + Tokyo Sessions</h3><p>Low volume = erratic, directionless price. Spreads widen. Fake breakouts common. Price chops sideways hunting stops.</p></div>
+</div>
+<div class="highlight-box">
+  <h4>🇮🇳 India Time Reference</h4>
+  <p>London session starts at 8:30PM IST. London–NY overlap is 1:30PM–5:30PM IST (summer) / 2:30PM–6:30PM IST (winter). Most big moves happen exactly in this window.</p>
+</div>
+
+---
+
+<div style="margin:28px 0">
+  <div style="font-family:'Fira Code',monospace;font-size:9px;color:var(--gold);letter-spacing:.3em;margin-bottom:12px;">VISUAL — 24-HOUR FOREX SESSION MAP (IST)</div>
+  <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;background:#06060f;padding:12px;">
+    <!-- Time axis labels (IST) -->
+    <text x="34"  y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">00:00</text>
+    <text x="120" y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">04:00</text>
+    <text x="210" y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">08:00</text>
+    <text x="300" y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">12:00</text>
+    <text x="390" y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">16:00</text>
+    <text x="480" y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">20:00</text>
+    <text x="570" y="28" fill="#4b5563" font-family="Fira Code,monospace" font-size="7">24:00</text>
+    <!-- Sydney: 01:00-09:30 IST -->
+    <rect x="38"  y="38" width="95" height="20" rx="3" fill="rgba(56,189,248,0.15)" stroke="rgba(56,189,248,0.4)" stroke-width="1"/>
+    <text x="85"  y="51" fill="#38bdf8" font-family="Fira Code,monospace" font-size="7" text-anchor="middle">SYDNEY</text>
+    <!-- Tokyo: 05:30-14:30 IST -->
+    <rect x="150" y="62" width="193" height="20" rx="3" fill="rgba(167,139,250,0.15)" stroke="rgba(167,139,250,0.4)" stroke-width="1"/>
+    <text x="246" y="75" fill="#a78bfa" font-family="Fira Code,monospace" font-size="7" text-anchor="middle">TOKYO / ASIA</text>
+    <!-- London: 13:30-22:30 IST -->
+    <rect x="335" y="86" width="255" height="20" rx="3" fill="rgba(232,184,75,0.2)" stroke="rgba(232,184,75,0.5)" stroke-width="1.5"/>
+    <text x="462" y="99" fill="#e8b84b" font-family="Fira Code,monospace" font-size="7" text-anchor="middle">LONDON SESSION</text>
+    <!-- NY: 18:30-03:00 IST -->
+    <rect x="452" y="110" width="183" height="20" rx="3" fill="rgba(34,197,94,0.15)" stroke="rgba(34,197,94,0.4)" stroke-width="1"/>
+    <text x="543" y="123" fill="#22c55e" font-family="Fira Code,monospace" font-size="7" text-anchor="middle">NEW YORK</text>
+    <!-- Overlap highlight -->
+    <rect x="452" y="86" width="138" height="44" rx="3" fill="rgba(34,197,94,0.08)" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="521" y="140" fill="#22c55e" font-family="Fira Code,monospace" font-size="8" text-anchor="middle" font-weight="bold">🔥 OVERLAP: 18:30–22:30 IST = Best time to trade</text>
+  </svg>
+</div>

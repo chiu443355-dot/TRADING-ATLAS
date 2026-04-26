@@ -1,0 +1,59 @@
+---
+layout: ../../layouts/ChapterLayout.astro
+title: "Market Structure"
+chapterNum: 4
+description: "Higher Highs, Higher Lows, BOS, CHoCH — read the market's direction before placing any trade."
+---
+<p class="ch-intro">The single most important skill in trading. Before any entry, you must read the trend. Structure tells you the story of what price is doing.</p>
+<div class="g2">
+  <div class="card glass-green"><div class="badge-pill bp-green">Bullish Trend</div><h3>Uptrend = HH + HL</h3><p>Higher Highs: each peak is higher than the last. Higher Lows: each pullback is higher than the last. Buyers in control. Only take BUY trades.</p></div>
+  <div class="card glass-red"><div class="badge-pill bp-red">Bearish Trend</div><h3>Downtrend = LH + LL</h3><p>Lower Highs: each peak is lower than the last. Lower Lows: each bottom is lower. Sellers in control. Only take SELL trades.</p></div>
+</div>
+<div class="card glass-gold" style="margin-top:24px">
+  <div class="badge-pill bp-gold">Key Concepts</div>
+  <h3>BOS and CHoCH</h3>
+  <p style="margin-bottom:12px"><strong style="color:#fff">Break of Structure (BOS)</strong> — Price breaks a previous significant high (bullish BOS) or low (bearish BOS), confirming the trend continues. Trade in this direction.</p>
+  <p><strong style="color:#fff">Change of Character (CHoCH)</strong> — Price breaks structure in the OPPOSITE direction for the first time. Early signal that trend may be reversing. Wait for confirmation.</p>
+</div>
+<div class="quiz">
+  <p class="quiz-q">Prices: Low 1.00 → High 1.05 → Low 1.02 → High 1.08 → Low 1.04. What structure is this?</p>
+  <div class="quiz-opts">
+    <button class="qopt" data-correct="false" data-msg="Check again — each low is higher than the last.">Downtrend (LH + LL)</button>
+    <button class="qopt" data-correct="true" data-msg="Perfect! Highs: 1.05→1.08 (HH). Lows: 1.02→1.04 (HL). Classic uptrend.">Uptrend (HH + HL)</button>
+    <button class="qopt" data-correct="false" data-msg="Structure is clearly directional here.">Sideways / Ranging</button>
+  </div>
+  <div class="quiz-fb"></div>
+</div>
+
+---
+
+<div style="margin:28px 0">
+  <div style="font-family:'Fira Code',monospace;font-size:9px;color:var(--gold);letter-spacing:.3em;margin-bottom:12px;">VISUAL — BULLISH VS BEARISH STRUCTURE</div>
+  <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;background:#06060f;padding:16px;">
+    <text x="20" y="22" fill="#22c55e" font-family="Fira Code,monospace" font-size="10" letter-spacing="2">BULLISH — HH + HL</text>
+    <polyline points="20,180 80,130 120,150 200,90 240,115 320,50 360,75" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="80" cy="130" r="4" fill="#22c55e"/><text x="73" y="120" fill="#22c55e" font-family="Fira Code,monospace" font-size="8">HH</text>
+    <circle cx="120" cy="150" r="4" fill="#22c55e"/><text x="113" y="166" fill="#22c55e" font-family="Fira Code,monospace" font-size="8">HL</text>
+    <circle cx="200" cy="90" r="4" fill="#22c55e"/><text x="193" y="80" fill="#22c55e" font-family="Fira Code,monospace" font-size="8">HH</text>
+    <circle cx="240" cy="115" r="4" fill="#22c55e"/><text x="233" y="130" fill="#22c55e" font-family="Fira Code,monospace" font-size="8">HL</text>
+    <circle cx="320" cy="50" r="5" fill="#fff"/><text x="313" y="40" fill="#22c55e" font-family="Fira Code,monospace" font-size="8" font-weight="bold">HH</text>
+    <!-- BOS annotation -->
+    <line x1="80" y1="130" x2="320" y2="50" stroke="rgba(34,197,94,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="165" y="82" fill="rgba(34,197,94,0.6)" font-family="Fira Code,monospace" font-size="7">trend direction</text>
+    <!-- Divider -->
+    <line x1="380" y1="0" x2="380" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+    <!-- Bearish -->
+    <text x="400" y="22" fill="#ef4444" font-family="Fira Code,monospace" font-size="10" letter-spacing="2">BEARISH — LH + LL</text>
+    <polyline points="400,40 460,90 500,65 560,130 600,105 660,170" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="460" cy="90" r="4" fill="#ef4444"/><text x="453" y="82" fill="#ef4444" font-family="Fira Code,monospace" font-size="8">LH</text>
+    <circle cx="500" cy="65" r="4" fill="#ef4444"/><text x="493" y="58" fill="#ef4444" font-family="Fira Code,monospace" font-size="8">LL</text>
+    <circle cx="560" cy="130" r="4" fill="#ef4444"/><text x="553" y="124" fill="#ef4444" font-family="Fira Code,monospace" font-size="8">LH</text>
+    <circle cx="600" cy="105" r="4" fill="#ef4444"/><text x="593" y="98" fill="#ef4444" font-family="Fira Code,monospace" font-size="8">LL</text>
+    <circle cx="660" cy="170" r="5" fill="#fff"/><text x="650" y="186" fill="#ef4444" font-family="Fira Code,monospace" font-size="8" font-weight="bold">LL</text>
+    <!-- CHoCH annotation box -->
+    <rect x="20" y="188" width="340" height="22" rx="5" fill="rgba(34,197,94,0.07)" stroke="rgba(34,197,94,0.2)" stroke-width="1"/>
+    <text x="30" y="202" fill="#22c55e" font-family="Fira Code,monospace" font-size="8">BOS = Break of Structure · trade in trend direction</text>
+    <rect x="390" y="188" width="300" height="22" rx="5" fill="rgba(239,68,68,0.07)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+    <text x="400" y="202" fill="#ef4444" font-family="Fira Code,monospace" font-size="8">CHoCH = first break opposite → trend reversing</text>
+  </svg>
+</div>

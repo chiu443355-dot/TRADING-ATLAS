@@ -1,0 +1,49 @@
+---
+layout: ../../layouts/ChapterLayout.astro
+title: "Areas of Interest"
+chapterNum: 5
+description: "Support, resistance, and flip zones — find the price levels where institutions place their orders."
+---
+<p class="ch-intro">Not all price levels are equal. Support and resistance zones are where the market repeatedly makes decisions. These are your entry zones.</p>
+<div class="card glass-gold">
+  <div class="badge-pill bp-gold">Core Rule</div>
+  <h3>What Makes a Valid AOI?</h3>
+  <p style="margin-bottom:12px">A price zone where the market has reacted <strong style="color:#fff">at least 3 times</strong>. Each reaction adds validity.</p>
+  <p>AOIs must be <strong style="color:#fff">5–60 pips wide</strong>. Too narrow = missed entries. Too wide = bad risk-reward.</p>
+</div>
+<div class="g2">
+  <div class="card glass-green"><div class="badge-pill bp-green">Support Zone</div><h3>Price Floor</h3><p>Selling pressure is met by enough buying to push price back up. Broken resistance often becomes new support — "flip zones."</p></div>
+  <div class="card glass-red"><div class="badge-pill bp-red">Resistance Zone</div><h3>Price Ceiling</h3><p>Buying pressure met by enough selling to push price back down. Flip zones work both ways.</p></div>
+</div>
+<div class="warn-box">
+  <h4>Common Mistake</h4>
+  <p>Many traders enter ON THE BREAK — before the retest. Wait for the retest. Yes, you'll miss some trades. But the ones you take will be much higher quality.</p>
+</div>
+
+---
+
+<div style="margin:28px 0">
+  <div style="font-family:'Fira Code',monospace;font-size:9px;color:var(--gold);letter-spacing:.3em;margin-bottom:12px;">VISUAL — SUPPORT, RESISTANCE & FLIP ZONES</div>
+  <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;border-radius:12px;background:#06060f;padding:16px;">
+    <!-- Resistance zone -->
+    <rect x="40" y="45" width="620" height="18" rx="3" fill="rgba(239,68,68,0.12)" stroke="rgba(239,68,68,0.35)" stroke-width="1"/>
+    <text x="48" y="39" fill="#ef4444" font-family="Fira Code,monospace" font-size="8">RESISTANCE ZONE — 3 touches = valid</text>
+    <!-- Support zone -->
+    <rect x="40" y="162" width="620" height="18" rx="3" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.35)" stroke-width="1"/>
+    <text x="48" y="196" fill="#22c55e" font-family="Fira Code,monospace" font-size="8">SUPPORT ZONE — price bounced 3 times</text>
+    <!-- Price action zig zag -->
+    <polyline points="50,170 120,60 200,165 290,58 370,168 450,62 530,170 610,58" fill="none" stroke="#e8b84b" stroke-width="2" stroke-linejoin="round"/>
+    <!-- Touch dots at resistance -->
+    <circle cx="120" cy="60" r="5" fill="#ef4444"/><text x="112" y="52" fill="#ef4444" font-family="Fira Code,monospace" font-size="7">①</text>
+    <circle cx="290" cy="58" r="5" fill="#ef4444"/><text x="282" y="50" fill="#ef4444" font-family="Fira Code,monospace" font-size="7">②</text>
+    <circle cx="450" cy="62" r="5" fill="#ef4444"/><text x="442" y="54" fill="#ef4444" font-family="Fira Code,monospace" font-size="7">③</text>
+    <circle cx="610" cy="58" r="6" fill="#ef4444" opacity="0.5"/><text x="602" y="50" fill="#ef4444" font-family="Fira Code,monospace" font-size="7">④?</text>
+    <!-- Touch dots at support -->
+    <circle cx="200" cy="165" r="5" fill="#22c55e"/><text x="192" y="180" fill="#22c55e" font-family="Fira Code,monospace" font-size="7">①</text>
+    <circle cx="370" cy="168" r="5" fill="#22c55e"/><text x="362" y="183" fill="#22c55e" font-family="Fira Code,monospace" font-size="7">②</text>
+    <circle cx="530" cy="170" r="5" fill="#22c55e"/><text x="522" y="185" fill="#22c55e" font-family="Fira Code,monospace" font-size="7">③</text>
+    <!-- Flip zone label -->
+    <text x="310" y="115" fill="rgba(232,184,75,0.7)" font-family="Fira Code,monospace" font-size="8" text-anchor="middle">↕ price bouncing in range</text>
+    <text x="310" y="128" fill="rgba(232,184,75,0.5)" font-family="Fira Code,monospace" font-size="7" text-anchor="middle">Resistance breaks → becomes Support (Flip Zone)</text>
+  </svg>
+</div>

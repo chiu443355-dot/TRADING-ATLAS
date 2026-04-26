@@ -1,0 +1,198 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  chapterNum: number;
+  totalChapters?: number;
+  description?: string;
+}
+
+const { title, chapterNum, totalChapters = 16, description } = Astro.props;
+const pct = Math.round((chapterNum / totalChapters) * 100);
+const fullTitle = `Chapter ${String(chapterNum).padStart(2,'0')}: ${title} · WikiWiz`;
+
+const CHAPTER_SLUGS: Record<number, string> = {
+  1:'01-what-is-trading', 2:'02-the-markets', 3:'03-market-sessions',
+  4:'04-market-structure', 5:'05-areas-of-interest', 6:'06-candlestick-mastery',
+  7:'07-chart-patterns', 8:'08-smart-money', 9:'09-risk-management',
+  10:'10-trading-psychology', 11:'11-complete-strategy', 12:'12-your-roadmap',
+  13:'13-options-derivatives', 14:'14-global-macro', 15:'15-algorithmic-concepts',
+  16:'16-becoming-professional',
+};
+
+const chKey = `ch${String(chapterNum).padStart(2,'0')}`;
+---
+
+<BaseLayout title={fullTitle} description={description ?? title}>
+
+  <!-- ── Navbar ─── -->
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:200;height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 28px;background:rgba(3,3,10,0.95);backdrop-filter:blur(24px);border-bottom:1px solid rgba(232,184,75,0.1);">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="/chapters" style="font-family:'Fira Code',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.06em;display:flex;align-items:center;gap:6px;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">
+        ← <span data-i18n="nav.chapters">Chapters</span>
+      </a>
+    </div>
+    <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:9px;justify-content:center;">
+      <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
+        <circle cx="18" cy="18" r="17" stroke="#e8b84b" stroke-width="1.2" stroke-opacity="0.4"/>
+        <rect x="8" y="20" width="4" height="8" rx="1" fill="#22c55e" fill-opacity="0.9"/>
+        <line x1="10" y1="18" x2="10" y2="20" stroke="#22c55e" stroke-width="1.5"/>
+        <line x1="10" y1="28" x2="10" y2="30" stroke="#22c55e" stroke-width="1.5"/>
+        <rect x="15" y="13" width="4" height="11" rx="1" fill="#e8b84b" fill-opacity="0.95"/>
+        <line x1="17" y1="10" x2="17" y2="13" stroke="#e8b84b" stroke-width="1.5"/>
+        <line x1="17" y1="24" x2="17" y2="27" stroke="#e8b84b" stroke-width="1.5"/>
+        <rect x="22" y="16" width="4" height="7" rx="1" fill="#ef4444" fill-opacity="0.9"/>
+        <line x1="24" y1="13" x2="24" y2="16" stroke="#ef4444" stroke-width="1.5"/>
+        <line x1="24" y1="23" x2="24" y2="26" stroke="#ef4444" stroke-width="1.5"/>
+        <circle cx="28" cy="14" r="2.5" fill="#e8b84b"/>
+      </svg>
+      <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:#e8b84b;">WikiWiz</span>
+    </a>
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px;">
+      <!-- Inline lang switcher for chapter pages -->
+      <div id="ch-lang-sw" style="display:flex;gap:3px;"></div>
+      <a href="/#join" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#000;background:var(--gold);padding:7px 14px;border-radius:7px;text-decoration:none;">Join Free</a>
+    </div>
+  </nav>
+
+  <main style="max-width:880px;margin:0 auto;padding:96px 24px 80px;position:relative;z-index:1;">
+
+    <!-- Breadcrumb -->
+    <nav style="display:flex;align-items:center;gap:6px;font-family:'Fira Code',monospace;font-size:9px;color:var(--muted);margin-bottom:32px;letter-spacing:.08em;">
+      <a href="/" style="color:var(--gold);text-decoration:none;">WikiWiz</a>
+      <span style="color:var(--dim)">›</span>
+      <a href="/chapters" style="color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Chapters</a>
+      <span style="color:var(--dim)">›</span>
+      <span>Chapter {String(chapterNum).padStart(2,'0')}</span>
+    </nav>
+
+    <!-- Chapter header -->
+    <div style="margin-bottom:40px;">
+      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <span style="font-family:'Fira Code',monospace;font-size:9px;color:var(--gold);letter-spacing:.4em;text-transform:uppercase;">Chapter {String(chapterNum).padStart(2,'0')}</span>
+        <span style="height:1px;width:40px;background:rgba(232,184,75,0.3);display:inline-block;"></span>
+        <span style="font-family:'Fira Code',monospace;font-size:9px;color:var(--muted);">{chapterNum} of {totalChapters}</span>
+      </div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:#fff;margin-bottom:0;">{title}</h1>
+    </div>
+
+    <!-- Progress bar -->
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;margin-bottom:48px;">
+      <span style="font-family:'Fira Code',monospace;font-size:9px;color:var(--muted);letter-spacing:.15em;white-space:nowrap;" data-i18n="ch.progress">Progress</span>
+      <div style="flex:1;height:3px;background:rgba(255,255,255,0.06);border-radius:99px;overflow:hidden;">
+        <div style={`width:${pct}%;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width 1.5s cubic-bezier(.22,1,.36,1);`}></div>
+      </div>
+      <span style="font-family:'Fira Code',monospace;font-size:10px;color:var(--gold);font-weight:600;">{chapterNum}/{totalChapters}</span>
+    </div>
+
+    <!-- Chapter intro (translatable) -->
+    <p class="ch-intro" data-i18n={`${chKey}.intro`}>
+      <slot name="intro" />
+    </p>
+
+    <!-- Chapter content -->
+    <div class="chapter-body">
+      <slot />
+    </div>
+
+    <!-- Chapter nav footer -->
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.07);">
+      {chapterNum > 1 ? (
+        <a href={`/chapters/${CHAPTER_SLUGS[chapterNum - 1]}`}
+           style="display:flex;align-items:center;gap:8px;color:var(--muted);text-decoration:none;font-family:'Fira Code',monospace;font-size:11px;padding:10px 16px;border:1px solid rgba(255,255,255,0.07);border-radius:8px;transition:all .2s;"
+           onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+           onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.color='var(--muted)'">
+          ← Chapter {String(chapterNum - 1).padStart(2,'0')}
+        </a>
+      ) : <div></div>}
+      {chapterNum < totalChapters && (
+        <a href={`/chapters/${CHAPTER_SLUGS[chapterNum + 1]}`}
+           style="display:flex;align-items:center;gap:8px;color:#000;text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:var(--gold);padding:10px 20px;border-radius:8px;transition:all .2s;"
+           onmouseover="this.style.background='var(--gold2)'"
+           onmouseout="this.style.background='var(--gold)'">
+          Chapter {String(chapterNum + 1).padStart(2,'0')} →
+        </a>
+      )}
+    </div>
+  </main>
+</BaseLayout>
+
+<!-- Chapter-specific i18n: applies intro translation and builds lang switcher -->
+<script define:vars={{ chKey }}>
+(function() {
+  const LOCALES = ['en','hi','mr'];
+  const NAMES = { en:'EN', hi:'हिं', mr:'मर' };
+  const cache = {};
+
+  function getLang() {
+    try {
+      const p = new URLSearchParams(location.search).get('lang');
+      if (p && LOCALES.includes(p)) return p;
+      const s = localStorage.getItem('wikwiz_locale');
+      if (s && LOCALES.includes(s)) return s;
+    } catch {}
+    return 'en';
+  }
+
+  async function fetchStrings(locale) {
+    if (cache[locale]) return cache[locale];
+    try {
+      const r = await fetch('/locales/' + locale + '.json');
+      const d = await r.json();
+      cache[locale] = d;
+      return d;
+    } catch { return {}; }
+  }
+
+  function applyAll(strings, locale) {
+    // Apply all data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key && strings[key] !== undefined) el.textContent = strings[key];
+    });
+    document.documentElement.lang = locale;
+    try { localStorage.setItem('wikwiz_locale', locale); } catch {}
+  }
+
+  // Build inline lang switcher
+  function buildSwitcher(current) {
+    const sw = document.getElementById('ch-lang-sw');
+    if (!sw) return;
+    sw.innerHTML = '';
+    LOCALES.forEach(loc => {
+      const btn = document.createElement('button');
+      btn.textContent = NAMES[loc];
+      btn.style.cssText = `padding:5px 10px;background:${loc===current?'rgba(232,184,75,.18)':'transparent'};border:1px solid ${loc===current?'#e8b84b':'rgba(255,255,255,0.1)'};border-radius:6px;font-family:Fira Code,monospace;font-size:10px;color:${loc===current?'#e8b84b':'#6b7280'};cursor:pointer;transition:all .2s;`;
+      btn.addEventListener('click', async () => {
+        const strings = await fetchStrings(loc);
+        if (Object.keys(strings).length > 0) {
+          applyAll(strings, loc);
+          buildSwitcher(loc);
+          const url = new URL(location.href);
+          loc === 'en' ? url.searchParams.delete('lang') : url.searchParams.set('lang', loc);
+          history.replaceState({}, '', url.toString());
+        }
+      });
+      sw.appendChild(btn);
+    });
+  }
+
+  // Init on load
+  document.addEventListener('DOMContentLoaded', async () => {
+    const lang = getLang();
+    buildSwitcher(lang);
+    if (lang !== 'en') {
+      const strings = await fetchStrings(lang);
+      if (Object.keys(strings).length > 0) applyAll(strings, lang);
+    }
+  });
+
+  // Listen for events from main lang switcher
+  window.addEventListener('wikwiz:locale', e => {
+    const { locale, strings } = e.detail;
+    applyAll(strings, locale);
+    buildSwitcher(locale);
+  });
+})();
+</script>
